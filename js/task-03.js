@@ -12,3 +12,19 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+const galleryRef = document.querySelector('.gallery');
+galleryRef.insertAdjacentHTML('beforeend', getListTemplate(images));
+
+function getLiTemplate(img) {
+  const { url, alt } = img;
+
+  return `
+    <li class="gallery__item">
+      <img class="gallery__img" src='${url}' alt='${alt}' > 
+     </li>
+  `;
+}
+
+function getListTemplate(arr) {
+  return arr.map(img => getLiTemplate(img)).join('');
+}
