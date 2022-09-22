@@ -4,7 +4,7 @@ const minLength = Number(inputRef.dataset.length);
 inputRef.addEventListener('blur', onInputBlur);
 
 function onInputBlur() {
-  if (inputRef.value.length >= minLength) {
+  if (inputRef.value.length === minLength) {
     setValid();
   } else {
     setInvalid();

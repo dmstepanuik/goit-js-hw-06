@@ -12,8 +12,14 @@ destroyBtnRef.addEventListener('click', onDestroyBtnClick);
 function onCreateBtnClick() {
   createBoxes(inputRef.valueAsNumber);
 }
+
+function resetInput() {
+  inputRef.value = '';
+}
+
 function onDestroyBtnClick() {
   clearElement(boxesRef);
+  resetInput();
 }
 
 function createBoxes(amount) {
@@ -23,7 +29,8 @@ function createBoxes(amount) {
 
 function getBoxListTemplate(amount) {
   const arr = [];
-  for (let i = 30; i <= 30 + (amount - 1) * 10; i = i + 10) {
+  const maxSize = 30 + (amount - 1) * 10;
+  for (let i = 30; i <= maxSize; i = i + 10) {
     arr.push(i);
   }
   return arr.map(it => getBoxItemTemplate(it)).join('');
